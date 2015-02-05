@@ -3,7 +3,7 @@ var gulp = require('gulp'),
 	to5 = require('gulp-6to5'),
 	plumber = require('gulp-plumber');
  
-gulp.task('serve', ['watch', 'connect'])
+gulp.task('serve', ['build', 'watch', 'connect'])
 
 gulp.task('connect', function() {
 	connect.server({
