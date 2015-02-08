@@ -6,12 +6,15 @@ var renderer = PIXI.autoDetectRenderer(400, 300);
 // add the renderer view element to the DOM
 document.body.appendChild(renderer.view);
 
+window.inputManager = new InputManager();
 window.textureFactory = new TextureFactory();
 textureFactory.load();
 
 var root = new BaseEntity()
 var smiley = new SpriteComponent('smiley');
 root.addComponent(smiley);
+root.addComponent(new MoveComponent());
+root.addComponent(new SlowRotateComponent());
 root.position.x = 200;
 root.position.y = 150;
 root.rotation = 0;
@@ -31,7 +34,6 @@ function animate() {
     var now = getTimeInSeconds();
     var timeElapsed = now - lastTime;
     root.updateComponents(timeElapsed);
-    root.rotation += timeElapsed * 1;
     lastTime = now;
 
     // render the stage  

@@ -1,8 +1,9 @@
 class BaseComponent {
 	constructor() {
 		this.components = [];
-		this.update = _.noop;
 	}
+
+	update() {}
 
 	addComponent(component) {
 		component.parent = this;
