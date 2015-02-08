@@ -17,7 +17,9 @@ gulp.task('build', ['6to5', 'bowerCopy', 'htmlCopy', 'imageCopy']);
 
 gulp.task('6to5', function() {
 	return gulp.src('src/scripts/**/*.js')
-				.pipe(watch('src/scripts/**/*.js'))
+				.pipe(watch('src/scripts/**/*.js', function(event) {
+					console.log('Recompiling 6to5');
+				}))
 				.pipe(plumber())
 		        .pipe(to5())
 		        .pipe(gulp.dest('public/scripts'));
