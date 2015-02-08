@@ -12,6 +12,7 @@
   ],
   "dependencies": {
     "pixi.js": "~2.2.5",
-    "lodash": "~3.1.0"
+    "lodash": "~3.1.0",
+    "Keypress": "~2.1.0"
   }
 }
