@@ -4,16 +4,23 @@ class TextureFactory {
 		this.textures = {};
 	}
 
-	addTexture(path, id) {
-		var texture = PIXI.Texture.fromImage(path);
-		this.textures[id] = texture;
+	addTexture(textureAsset) {
+		var texture = PIXI.Texture.fromImage(textureAsset[0]);
+		this.textures[textureAsset[1]] = texture;
 	}
 
 	getTexture(id) {
 		return this.textures[id];
 	}
+		
 
-	load() {
-		this.addTexture("images/smiley.png", 'smiley');
+	load(callback) {
+		var assets = _.map(textureAssets, _.first);
+		var loader = new PIXI.AssetLoader(assets);
+		loader.onComplete = function() {
+			_.map(textureAssets, this.addTexture.bind(this));
+			callback();
+		}.bind(this);
+		loader.load();
 	}
 }

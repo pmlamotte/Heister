@@ -27,7 +27,6 @@ gulp.task('6to5', function() {
 
 gulp.task('bowerCopy', function() {
 	return gulp.src('bower_components/**/*')
-				.pipe(watch('bower_components/**/*'))
 				.pipe(gulp.dest('public/scripts'));
 });
 
