@@ -1,14 +1,17 @@
 entityBuilder.addRecipe({
-	name: 'smiley',
+	name: 'debugSmiley',
 
 	components: [
 		{
 			type: 'SpriteComponent',
-			args: ['houston']
+			args: ['smiley']
 		},
 		{
 			type: 'SpritePhysicsComponent'
 		},
+		{
+			type: 'DebugComponent'
+		}
 	]
 });
 
@@ -18,7 +21,7 @@ entityBuilder.addRecipe({
 	components: [
 		{
 			type: 'SpriteComponent',
-			args: ['houston']
+			args: ['smiley']
 		},
 		{
 			type: 'MoveComponent',

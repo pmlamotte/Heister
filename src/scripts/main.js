@@ -14,8 +14,9 @@ textureFactory.load(function() {
 	window.root = new BaseEntity()
 	root.addComponent(physicsManager);
 	root.addComponent(entityBuilder.build('attractor'));
+	//root.addComponent(entityBuilder.build('debugSmiley'));
 	//root.addComponent(entityBuilder.build('player smiley', {position: {x: 500, y: 500}}));
-	addSmileys(10);
+	addSmileys(7);
 
 	requestAnimFrame( animate );
 
