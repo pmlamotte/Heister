@@ -1,15 +1,15 @@
 language: node_js
 node_js:
-	- "0.10"
+    - "0.10"
 before_install:
-	- chmod 755 ./.deploy_pages.sh
+    - chmod 755 ./.deploy_pages.sh
 before_script:
-	- npm install -g bower
-	- bower install
+    - npm install -g bower
+    - bower install
 script:
-	- node node_modules/gulp/bin/gulp.js build
+    - node node_modules/gulp/bin/gulp.js build
 after_success:
-	- ./.deploy_pages.sh
+    - ./.deploy_pages.sh
 env:
-	global:
-		- secure: "Czw7lYV1LsMfDk4UzwsCPQPvGPO9JyR/AisloBAJ0MtYmwl0VYRaIyP1krqmI24u3b4kcqJdqnjrwJg2MVALTly6WexmdsOaVZZ038ZOTP1UD3Bda+lrLYr9NiDnWrfI3F/RuSWnnl3oaUR9eFuTGnddMz3aa+iyfbkXV0gSgFQ="
+    global:
+        - secure: "Czw7lYV1LsMfDk4UzwsCPQPvGPO9JyR/AisloBAJ0MtYmwl0VYRaIyP1krqmI24u3b4kcqJdqnjrwJg2MVALTly6WexmdsOaVZZ038ZOTP1UD3Bda+lrLYr9NiDnWrfI3F/RuSWnnl3oaUR9eFuTGnddMz3aa+iyfbkXV0gSgFQ="
