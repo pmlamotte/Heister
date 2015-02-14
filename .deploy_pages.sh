@@ -7,10 +7,6 @@ GH_REPO="@github.com/pmlamotte/Heister.git"
 
 FULL_REPO="https://$GH_TOKEN$GH_REPO"
 
-for files in '*.tar.gz'; do
-        tar xfz $files
-done
-
 cd out
 git clone $FULL_REPO .
 git checkout gh-pages
