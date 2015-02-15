@@ -3,7 +3,7 @@ class DebugComponent extends BaseComponent {
 		super();
 		this.text = new PIXI.Text("Test", {
 			fill: 'White'
-		})
+		});
 		stage.addChild(this.text);
 	}
 

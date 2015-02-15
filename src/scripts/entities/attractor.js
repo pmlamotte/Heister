@@ -8,7 +8,7 @@ entityBuilder.addRecipe({
 				x: 750,
 				y: 400
 			},
-			strength: .75,
+			strength: 0.75,
 			order: 1.2,
 			min: 200
 		}
@@ -16,4 +16,4 @@ entityBuilder.addRecipe({
 		type: 'SpriteComponent',
 		args: 'circle'
 	}]
-})
+});

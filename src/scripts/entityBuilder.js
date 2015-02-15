@@ -7,7 +7,7 @@ class EntityBuilder {
 	addRecipe(recipe) {
 		if (_.isUndefined(recipe.name)) {
 			console.error("The following recipe had no name specified");
-			console.error(recipe)
+			console.error(recipe);
 			return;
 		}
 		this.recipes[recipe.name] = recipe;

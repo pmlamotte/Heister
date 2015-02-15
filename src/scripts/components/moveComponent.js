@@ -11,7 +11,7 @@ class MoveComponent extends BaseComponent {
 			['up_arrow', 0, -1],
 			['right_arrow', 1, 0],
 			['down_arrow', 0, 1]
-		]
+		];
 		var moving = false;
 		_.each(dirs, function(dir) {
 			if (inputManager.isPressed(inputManager[dir[0]])) {
@@ -35,7 +35,7 @@ class MoveComponent extends BaseComponent {
 				// physics.position.x += offset[0];
 				// physics.position.y += offset[1];
 			} else {
-				physics.state.vel.set(0,0)
+				physics.state.vel.set(0,0);
 			}
 		}
 	}

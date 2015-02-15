@@ -8,4 +8,4 @@ class Debug {
 		}
 	}
 }
-window.debug = new Debug()
+window.debug = new Debug();

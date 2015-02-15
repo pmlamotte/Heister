@@ -11,7 +11,7 @@ window.textureFactory = new TextureFactory();
 window.physicsManager = new PhysicsManager();
 textureFactory.load(function() {
 
-	window.root = new BaseEntity()
+	window.root = new BaseEntity();
 	root.addComponent(physicsManager);
 	root.addComponent(entityBuilder.build('attractor'));
 	//root.addComponent(entityBuilder.build('debugSmiley'));
@@ -52,7 +52,7 @@ textureFactory.load(function() {
 		for (var i = 0; i < count; i++) {
 			var options = {
 				position: {x: getWidth() * (i / count), y: 1}
-			}
+			};
 			root.addComponent(entityBuilder.build('smiley', options));
 		}
 	}

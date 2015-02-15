@@ -1,13 +1,13 @@
 var gulp = require('gulp'),
 	connect = require('gulp-connect'),
-	to5 = require('gulp-6to5'),
+	to5 = require('gulp-babel'),
 	plumber = require('gulp-plumber'),
 	watch = require('gulp-watch'),
 	yargs = require('yargs');
 
-var shouldWatch = (yargs.argv._.length == 0 || yargs.argv._[0] === 'serve') ? true : false;
+var shouldWatch = (yargs.argv._.length === 0 || yargs.argv._[0] === 'serve') ? true : false;
 
-gulp.task('serve', ['build', 'connect'])
+gulp.task('serve', ['build', 'connect']);
 
 gulp.task('connect', function() {
 	connect.server({
@@ -16,14 +16,14 @@ gulp.task('connect', function() {
 	});
 });
 
-gulp.task('build', ['6to5', 'bowerCopy', 'htmlCopy', 'imageCopy']);
+gulp.task('build', ['babel', 'bowerCopy', 'htmlCopy', 'imageCopy']);
 
-gulp.task('6to5', function() {
+gulp.task('babel', function() {
 	var stream = gulp.src('src/scripts/**/*.js');
 
 	if (shouldWatch) {
 		stream = stream.pipe(watch('src/scripts/**/*.js', function(event) {
-					console.log('Recompiling 6to5');
+					console.log('Recompiling babel');
 				}))
 				.pipe(plumber());
 	}
@@ -50,6 +50,6 @@ gulp.task('imageCopy', function() {
 		stream = stream.pipe(watch('src/images/**/*'));
 	}
 	return stream.pipe(gulp.dest('public/images'));
-})
+});
  
 gulp.task('default', ['serve']);

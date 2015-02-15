@@ -1,0 +1,8 @@
+{
+	"esnext": true,
+	"maxcomplexity": 5,
+	"jquery": true,
+	"globals": {
+		"_": false
+	}
+}
