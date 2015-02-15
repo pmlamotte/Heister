@@ -2,6 +2,7 @@ var gulp = require('gulp'),
 	connect = require('gulp-connect'),
 	to5 = require('gulp-babel'),
 	plumber = require('gulp-plumber'),
+	sourcemaps = require('gulp-sourcemaps'),
 	watch = require('gulp-watch'),
 	yargs = require('yargs');
 
@@ -27,7 +28,9 @@ gulp.task('babel', function() {
 				}))
 				.pipe(plumber());
 	}
-    return stream.pipe(to5())
+    return stream.pipe(sourcemaps.init())
+    			 .pipe(to5())
+			 	 .pipe(sourcemaps.write())
 				 .pipe(gulp.dest('public/scripts'));
 });
 
