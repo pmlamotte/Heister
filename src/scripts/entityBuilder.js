@@ -20,17 +20,27 @@ class EntityBuilder {
 			return undefined;
 		}
 
-		options.name = name;
+		if (_.isUndefined(options.base)) {
+			options.base = {};
+		}
+		options.base.name = name;
 
-		var entity = new BaseEntity(options);
+		var entity = new BaseEntity(options.base);
 		_.each(recipe.components, function(component) {
 			var type = window[component.type];
 			if (_.isUndefined(type)) {
 				console.error(`Unknown component in recipe '${recipe.name}' of type: ${component.type}`);
 				return;
 			}
+			var componentArgs = options[component.type];
+			if (_.isUndefined(componentArgs)) {
+				componentArgs = component.args;
+			}
+			if (!_.isArray(componentArgs)) {
+				componentArgs = [componentArgs];
+			}
 			var obj = Object.create(window[component.type].prototype);
-			window[component.type].apply(obj, [component.args]);
+			window[component.type].apply(obj, componentArgs);
 			entity.addComponent(obj);
 		});
 

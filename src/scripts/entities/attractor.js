@@ -10,7 +10,7 @@ entityBuilder.addRecipe({
 			},
 			strength: 0.75,
 			order: 1.2,
-			min: 200
+			min: 50
 		}
 	}, {
 		type: 'SpriteComponent',

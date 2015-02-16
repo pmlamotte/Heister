@@ -1,4 +1,4 @@
-var stage = new PIXI.Stage(0x000000);
+window.stage = new PIXI.Stage(0x000000);
 
 // create a renderer instance.
 var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
@@ -9,14 +9,20 @@ document.body.appendChild(renderer.view);
 window.inputManager = new InputManager();
 window.textureFactory = new TextureFactory();
 window.physicsManager = new PhysicsManager();
-textureFactory.load(function() {
+window.camera = new Camera();
 
+textureFactory.load(window.textureAssets, function() {
+	
 	window.root = new BaseEntity();
 	root.addComponent(physicsManager);
+	root.addComponent(camera);
 	root.addComponent(entityBuilder.build('attractor'));
 	//root.addComponent(entityBuilder.build('debugSmiley'));
 	//root.addComponent(entityBuilder.build('player smiley', {position: {x: 500, y: 500}}));
-	addSmileys(7);
+	//addSmileys(7);
+	loadLevel('test', function() {
+		addHoustons();
+	});
 
 	requestAnimFrame( animate );
 
@@ -55,5 +61,21 @@ textureFactory.load(function() {
 			};
 			root.addComponent(entityBuilder.build('smiley', options));
 		}
+	}
+
+	function addHoustons() {
+		var tiles = textureFactory.getTextureTileIds('houston');
+
+		_.each(tiles, function(tile) {
+			root.addComponent(entityBuilder.build('smiley', {
+				base: {
+					position: {
+						x: Math.random() * 500,
+						y: Math.random() * 200
+					}
+				},
+				"SpriteComponent": ["houston", tile]
+			}));
+		});
 	}
 });

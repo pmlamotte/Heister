@@ -14,6 +14,7 @@
     "pixi.js": "~2.2.5",
     "lodash": "~3.2.0",
     "Keypress": "~2.1.0",
-    "physicsjs": "~0.7.0"
+    "physicsjs": "~0.7.0",
+    "jquery": "~2.1.3"
   }
 }

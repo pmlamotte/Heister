@@ -1,5 +1,14 @@
 window.textureAssets = [
-	["images/smiley.png", 'smiley'],
-	["images/circle.png", 'circle'],
-	["images/houston.jpg", 'houston']
+	{
+		path: "images/smiley.png",
+		id: 'smiley'
+	},
+	{
+		path: "images/circle.png",
+		id: 'circle'
+	},
+	{
+		path: "images/houston.jpg",
+		id: 'houston'
+	}
 ];

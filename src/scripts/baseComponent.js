@@ -41,6 +41,10 @@ class BaseComponent {
 		this.components.push(component);
 	}
 
+	removeComponent(component) {
+		this.components = _.without(this.components, component);
+	}
+
 	updateComponents(timeElapsed, now) {
 		this.update(timeElapsed);
 		_.invoke(this.components, 'updateComponents', timeElapsed, now);

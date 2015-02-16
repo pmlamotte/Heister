@@ -12,12 +12,12 @@ gulp.task('serve', ['build', 'connect']);
 
 gulp.task('connect', function() {
 	connect.server({
-	    root: ['public', '.'],
+	    root: ['public'],
 	    port: 8080
 	});
 });
 
-gulp.task('build', ['babel', 'bowerCopy', 'htmlCopy', 'imageCopy']);
+gulp.task('build', ['babel', 'bowerCopy', 'rootCopy', 'imageCopy']);
 
 gulp.task('babel', function() {
 	var stream = gulp.src('src/scripts/**/*.js');
@@ -39,10 +39,11 @@ gulp.task('bowerCopy', function() {
 				.pipe(gulp.dest('public/scripts'));
 });
 
-gulp.task('htmlCopy', function() {
-	var stream = gulp.src(['src/**/*.html']);
+gulp.task('rootCopy', function() {
+	var glob = ['src/**/*.html', 'src/**/*.json'];
+	var stream = gulp.src(glob);
 	if (shouldWatch) {
-		stream = stream.pipe(watch('src/**/*.html'));
+		stream = stream.pipe(watch(glob));
 	}
 	return stream.pipe(gulp.dest('public/'));
 });
