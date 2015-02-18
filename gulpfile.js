@@ -23,9 +23,7 @@ gulp.task('babel', function() {
 	var stream = gulp.src('src/scripts/**/*.js');
 
 	if (shouldWatch) {
-		stream = stream.pipe(watch('src/scripts/**/*.js', function(event) {
-					console.log('Recompiling babel');
-				}))
+		stream = stream.pipe(watch('src/scripts/**/*.js', {name: "babel", verbose: true}))
 				.pipe(plumber());
 	}
     return stream.pipe(sourcemaps.init())
@@ -43,7 +41,7 @@ gulp.task('rootCopy', function() {
 	var glob = ['src/**/*.html', 'src/**/*.json'];
 	var stream = gulp.src(glob);
 	if (shouldWatch) {
-		stream = stream.pipe(watch(glob));
+		stream = stream.pipe(watch(glob, {name: "rootCopy", verbose: true}));
 	}
 	return stream.pipe(gulp.dest('public/'));
 });
@@ -51,7 +49,7 @@ gulp.task('rootCopy', function() {
 gulp.task('imageCopy', function() {
 	var stream = gulp.src(['src/images/**/*']);
 	if (shouldWatch) {
-		stream = stream.pipe(watch('src/images/**/*'));
+		stream = stream.pipe(watch('src/images/**/*', {name: "imageCopy", verbose: true}));
 	}
 	return stream.pipe(gulp.dest('public/images'));
 });
