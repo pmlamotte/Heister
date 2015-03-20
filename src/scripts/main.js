@@ -18,14 +18,18 @@ textureFactory.load(window.textureAssets, function() {
 
 	loadLevel('test', function(entities) {
 		_.map(entities, (entity) => root.addComponent(entity));
-		root.addComponent(entityBuilder.build('player smiley', {
+		var player = entityBuilder.build('player smiley', {
 			base: {
 				position: {
 					x: getWidth() / 2,
 					y: getHeight() / 2
 				}
 			}
-		}));
+		});
+
+		player.addComponent(new CameraComponent());
+
+		root.addComponent(player);
 	});
 
 	requestAnimFrame( animate );
@@ -38,17 +42,17 @@ textureFactory.load(window.textureAssets, function() {
 	var lastDelta = 1;
 	function animate() {
 
-	    requestAnimFrame( animate );
+		requestAnimFrame( animate );
 
-	    var now = getTimeInSeconds();
-	    var timeElapsed = now - lastTime;
-	    root.updateComponents(timeElapsed, now);
-	    camera.update(timeElapsed, now);
-	    lastTime = now;
-	    lastDelta = timeElapsed;
+		var now = getTimeInSeconds();
+		var timeElapsed = now - lastTime;
+		root.updateComponents(timeElapsed, now);
+		camera.update(timeElapsed, now);
+		lastTime = now;
+		lastDelta = timeElapsed;
 
-	    // render the stage  
-	    renderer.render(stage);
+		// render the stage  
+		renderer.render(stage);
 	}
 
 	function getWidth() {
