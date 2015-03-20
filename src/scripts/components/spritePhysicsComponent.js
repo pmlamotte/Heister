@@ -12,7 +12,8 @@ class SpritePhysicsComponent extends BaseComponent {
 				height: sprite.height,
 				x: this.parent.position.x,
 				y: this.parent.position.y,
-				restitution: 1
+				restitution: 0,
+				treatment: (this.parent.collide) ? 'static' : 'dynamic'
 			});
 			physicsManager.world.add(this.body);
 		}

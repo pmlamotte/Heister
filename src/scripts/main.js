@@ -12,16 +12,20 @@ window.physicsManager = new PhysicsManager();
 window.camera = new Camera();
 
 textureFactory.load(window.textureAssets, function() {
-	
+
 	window.root = new BaseEntity();
 	root.addComponent(physicsManager);
-	root.addComponent(camera);
-	root.addComponent(entityBuilder.build('attractor'));
-	//root.addComponent(entityBuilder.build('debugSmiley'));
-	//root.addComponent(entityBuilder.build('player smiley', {position: {x: 500, y: 500}}));
-	//addSmileys(7);
-	loadLevel('test', function() {
-		addHoustons();
+
+	loadLevel('test', function(entities) {
+		_.map(entities, (entity) => root.addComponent(entity));
+		root.addComponent(entityBuilder.build('player smiley', {
+			base: {
+				position: {
+					x: getWidth() / 2,
+					y: getHeight() / 2
+				}
+			}
+		}));
 	});
 
 	requestAnimFrame( animate );
@@ -39,6 +43,7 @@ textureFactory.load(window.textureAssets, function() {
 	    var now = getTimeInSeconds();
 	    var timeElapsed = now - lastTime;
 	    root.updateComponents(timeElapsed, now);
+	    camera.update(timeElapsed, now);
 	    lastTime = now;
 	    lastDelta = timeElapsed;
 
@@ -52,30 +57,5 @@ textureFactory.load(window.textureAssets, function() {
 
 	function getHeight() {
 		return window.innerHeight;
-	}
-
-	function addSmileys(count) {
-		for (var i = 0; i < count; i++) {
-			var options = {
-				position: {x: getWidth() * (i / count), y: 1}
-			};
-			root.addComponent(entityBuilder.build('smiley', options));
-		}
-	}
-
-	function addHoustons() {
-		var tiles = textureFactory.getTextureTileIds('houston');
-
-		_.each(tiles, function(tile) {
-			root.addComponent(entityBuilder.build('smiley', {
-				base: {
-					position: {
-						x: Math.random() * 500,
-						y: Math.random() * 200
-					}
-				},
-				"SpriteComponent": ["houston", tile]
-			}));
-		});
 	}
 });

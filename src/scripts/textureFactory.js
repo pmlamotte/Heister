@@ -20,7 +20,7 @@ class TextureFactory {
 					var y = j * tileDimensions.height;
 					var frame = new PIXI.Rectangle(x, y, tileDimensions.width, tileDimensions.height);
 					var tile = new PIXI.Texture(texture, frame);
-					var tileNum = i + (tileDimensions.x * j) +tileDimensions.baseId;
+					var tileNum = i + (tileDimensions.x * j) + tileDimensions.baseId;
 					this.tiles[tileNum] = tile;
 					textures.tiles.push(tileNum);
 				}

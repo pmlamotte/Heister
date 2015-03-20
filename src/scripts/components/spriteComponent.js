@@ -6,10 +6,6 @@ class SpriteComponent extends BaseComponent {
 		this.sprite.anchor.x = 0.5;
 		this.sprite.anchor.y = 0.5;
 		this.rotation = 0;
-		this.sprite.interactive = true;
-		this.sprite.mousedown = function(data) {
-			debug.attachCamera(this.parent);
-		}.bind(this);
 		worldStage.addChild(this.sprite);
 	}
 

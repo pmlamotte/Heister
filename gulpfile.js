@@ -17,7 +17,7 @@ gulp.task('connect', function() {
 	});
 });
 
-gulp.task('build', ['babel', 'bowerCopy', 'rootCopy', 'imageCopy']);
+gulp.task('build', ['babel', 'bowerCopy', 'htmlCopy', 'jsonCopy', 'imageCopy']);
 
 gulp.task('babel', function() {
 	var stream = gulp.src('src/scripts/**/*.js');
@@ -37,8 +37,17 @@ gulp.task('bowerCopy', function() {
 				.pipe(gulp.dest('public/scripts'));
 });
 
-gulp.task('rootCopy', function() {
-	var glob = ['src/**/*.html', 'src/**/*.json'];
+gulp.task('htmlCopy', function() {
+	var glob = 'src/**/*.html';
+	var stream = gulp.src(glob);
+	if (shouldWatch) {
+		stream = stream.pipe(watch(glob, {name: "rootCopy", verbose: true}));
+	}
+	return stream.pipe(gulp.dest('public/'));
+});
+
+gulp.task('jsonCopy', function() {
+	var glob = 'src/**/*.json';
 	var stream = gulp.src(glob);
 	if (shouldWatch) {
 		stream = stream.pipe(watch(glob, {name: "rootCopy", verbose: true}));

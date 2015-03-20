@@ -19,7 +19,6 @@ class MoveComponent extends BaseComponent {
 				offset.x += dir[1] * speed;
 				offset.y += dir[2] * speed;
 				moving = true;
-				console.log('moving!');
 			}
 		}.bind(this));
 
@@ -30,6 +29,7 @@ class MoveComponent extends BaseComponent {
 			physics.state.angular.acc = 0;
 			physics.state.angular.pos = 0;
 			if (moving) {
+				physics.sleep(false);
 				physics.state.vel.set(offset.x, offset.y);
 			
 				// physics.position.x += offset[0];

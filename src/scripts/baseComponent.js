@@ -36,9 +36,11 @@ class BaseComponent {
 		}, entities);
 	}
 
-	addComponent(component) {
-		component.parent = this;
-		this.components.push(component);
+	addComponent(...components) {
+		_.each(components, function(component) {
+			component.parent = this;
+			this.components.push(component);
+		}, this);
 	}
 
 	removeComponent(component) {
