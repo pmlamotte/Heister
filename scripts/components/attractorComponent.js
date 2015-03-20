@@ -1,6 +1,6 @@
 "use strict";
 
-var _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
+var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc && desc.writable) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
@@ -8,9 +8,10 @@ var _inherits = function (subClass, superClass) { if (typeof superClass !== "fun
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
-var AttractorComponent = (function (BaseComponent) {
+var AttractorComponent = (function (_BaseComponent) {
 	function AttractorComponent() {
 		var options = arguments[0] === undefined ? { pos: { x: 0, y: 0 } } : arguments[0];
+
 		_classCallCheck(this, AttractorComponent);
 
 		_get(Object.getPrototypeOf(AttractorComponent.prototype), "constructor", this).call(this);
@@ -18,18 +19,16 @@ var AttractorComponent = (function (BaseComponent) {
 		physicsManager.world.add(this.attractor);
 	}
 
-	_inherits(AttractorComponent, BaseComponent);
+	_inherits(AttractorComponent, _BaseComponent);
 
-	_prototypeProperties(AttractorComponent, null, {
+	_createClass(AttractorComponent, {
 		update: {
 			value: function update() {
 				this.parent.position = this.attractor.position();
-			},
-			writable: true,
-			configurable: true
+			}
 		}
 	});
 
 	return AttractorComponent;
 })(BaseComponent);
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvYXR0cmFjdG9yQ29tcG9uZW50LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7SUFBTSxrQkFBa0IsY0FBUyxhQUFhO0FBQ2xDLFVBRE4sa0JBQWtCO01BQ1gsT0FBTyxnQ0FBQyxFQUFDLEdBQUcsRUFBQyxFQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBQyxFQUFDO3dCQURqQyxrQkFBa0I7O0FBRXRCLDZCQUZJLGtCQUFrQiw2Q0FFZDtBQUNSLE1BQUksQ0FBQyxTQUFTLEdBQUcsT0FBTyxDQUFDLFFBQVEsQ0FBQyxXQUFXLEVBQUUsT0FBTyxDQUFDLENBQUM7QUFDeEQsZ0JBQWMsQ0FBQyxLQUFLLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsQ0FBQztFQUN6Qzs7V0FMSSxrQkFBa0IsRUFBUyxhQUFhOztzQkFBeEMsa0JBQWtCO0FBT3ZCLFFBQU07VUFBQSxrQkFBRztBQUNSLFFBQUksQ0FBQyxNQUFNLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQyxTQUFTLENBQUMsUUFBUSxFQUFFLENBQUM7SUFDakQ7Ozs7OztRQVRJLGtCQUFrQjtHQUFTLGFBQWEiLCJmaWxlIjoiY29tcG9uZW50cy9hdHRyYWN0b3JDb21wb25lbnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJjbGFzcyBBdHRyYWN0b3JDb21wb25lbnQgZXh0ZW5kcyBCYXNlQ29tcG9uZW50IHtcblx0Y29uc3RydWN0b3Iob3B0aW9ucz17cG9zOnt4OiAwLCB5OiAwfX0pIHtcblx0XHRzdXBlcigpO1xuXHRcdHRoaXMuYXR0cmFjdG9yID0gUGh5c2ljcy5iZWhhdmlvcignYXR0cmFjdG9yJywgb3B0aW9ucyk7XG5cdFx0cGh5c2ljc01hbmFnZXIud29ybGQuYWRkKHRoaXMuYXR0cmFjdG9yKTtcblx0fVxuXG5cdHVwZGF0ZSgpIHtcblx0XHR0aGlzLnBhcmVudC5wb3NpdGlvbiA9IHRoaXMuYXR0cmFjdG9yLnBvc2l0aW9uKCk7XG5cdH1cbn0iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvYXR0cmFjdG9yQ29tcG9uZW50LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7SUFBTSxrQkFBa0I7QUFDWixVQUROLGtCQUFrQixHQUNpQjtNQUE1QixPQUFPLGdDQUFDLEVBQUMsR0FBRyxFQUFDLEVBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFDLEVBQUM7O3dCQURqQyxrQkFBa0I7O0FBRXRCLDZCQUZJLGtCQUFrQiw2Q0FFZDtBQUNSLE1BQUksQ0FBQyxTQUFTLEdBQUcsT0FBTyxDQUFDLFFBQVEsQ0FBQyxXQUFXLEVBQUUsT0FBTyxDQUFDLENBQUM7QUFDeEQsZ0JBQWMsQ0FBQyxLQUFLLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsQ0FBQztFQUN6Qzs7V0FMSSxrQkFBa0I7O2NBQWxCLGtCQUFrQjtBQU92QixRQUFNO1VBQUEsa0JBQUc7QUFDUixRQUFJLENBQUMsTUFBTSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDLFFBQVEsRUFBRSxDQUFDO0lBQ2pEOzs7O1FBVEksa0JBQWtCO0dBQVMsYUFBYSIsImZpbGUiOiJjb21wb25lbnRzL2F0dHJhY3RvckNvbXBvbmVudC5qcyIsInNvdXJjZXNDb250ZW50IjpbImNsYXNzIEF0dHJhY3RvckNvbXBvbmVudCBleHRlbmRzIEJhc2VDb21wb25lbnQge1xuXHRjb25zdHJ1Y3RvcihvcHRpb25zPXtwb3M6e3g6IDAsIHk6IDB9fSkge1xuXHRcdHN1cGVyKCk7XG5cdFx0dGhpcy5hdHRyYWN0b3IgPSBQaHlzaWNzLmJlaGF2aW9yKCdhdHRyYWN0b3InLCBvcHRpb25zKTtcblx0XHRwaHlzaWNzTWFuYWdlci53b3JsZC5hZGQodGhpcy5hdHRyYWN0b3IpO1xuXHR9XG5cblx0dXBkYXRlKCkge1xuXHRcdHRoaXMucGFyZW50LnBvc2l0aW9uID0gdGhpcy5hdHRyYWN0b3IucG9zaXRpb24oKTtcblx0fVxufSJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==

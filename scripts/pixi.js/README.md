@@ -1,6 +1,13 @@
 Pixi Renderer 
 =============
 
+![pixi.js logo](http://www.goodboydigital.com/pixijs/logo_small.png) 
+
+### Like what we do? ###
+
+[Support us via Gratipay](<https://gratipay.com/GoodBoyDigital/>)
+
+
 #### *** IMPORTANT - V2 API CHANGES *** ####
 
 A heads up for anyone updating their version of pixi.js to version 2, as we have changed a couple of bits that you need to be aware of. Fortunately, there are only two changes, and both are small.
@@ -23,7 +30,7 @@ var renderer = new PIXI.WebGLRenderer(800, 600, options)
 Check out the docs for more info!
 
 
-![pixi.js logo](http://www.goodboydigital.com/pixijs/logo_small.png) 
+
 
 [<img src="http://www.pixijs.com/wp-content/uploads/2013/05/headerPanel_projects-898x342.jpg">](http://www.pixijs.com/projects)
 #### JavaScript 2D Renderer ####
@@ -37,15 +44,18 @@ If you’re interested in pixi.js then feel free to follow me on twitter
 of course check back on [our site](<http://www.goodboydigital.com/blog/>) as
 any breakthroughs will be posted up there too!
 
+[![Inline docs](http://inch-ci.org/github/GoodBoyDigital/pixi.js.svg?branch=master)](http://inch-ci.org/github/GoodBoyDigital/pixi.js)
+[![Join the chat at https://gitter.im/GoodBoyDigital/pixi.js](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/GoodBoyDigital/pixi.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Analytics](https://ga-beacon.appspot.com/UA-39213431-2/pixi.js/index)](https://github.com/igrigorik/ga-beacon)
+[![Support us](https://img.shields.io/gratipay/GoodBoyDigital.svg)](https://gratipay.com/GoodBoyDigital/)
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/GoodBoyDigital/pixi.js/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
 ### Demos ###
 
 - [WebGL Filters!](<http://www.goodboydigital.com/pixijs/examples/15/indexAll.html>)
 
 - [Run pixie run](<http://www.goodboydigital.com/runpixierun/>)
 
-- [Fight for Everyone](<http://www.theleisuresociety.co.uk/fightforeveryone>)
+- [Fight for Everyone](<http://www.goodboydigital.com/casestudies/fightforeveryone/>)
 
 - [Flash vs HTML](<http://flashvhtml.com>)
 
